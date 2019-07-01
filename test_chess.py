@@ -2,7 +2,6 @@ from lib import *
 from chess_exception import *
 import logging
 from datetime import datetime
-import pytest
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 log_file = "./log/test_chess_{0}.log".format(datetime.now().strftime("%Y%m%d-%H%M%S"))
@@ -88,6 +87,19 @@ def test_method_not_specified():
     log.info("Wrong method, expected error : "
              "{0}".format(str(exc)))
 
+def test_next_player_state():
+  """
+  This test checks that next player state returned is as expected..
+  """
+  payload = create_request_json(playerState="w", move="Nc3")
+  out = send_request(payload=payload)
+  playerState = out["result"]["playerState"]
+  assert playerState == "b"
+  boardState = out["result"]["boardState"]
+  payload = create_request_json(playerState="b", move="Nc6", boardState=boardState)
+  out = send_request(payload=payload)
+  assert out["result"]["playerState"] == "w"
+
 def test_game_state_check():
   """
   This test checks gamestate check.
@@ -159,6 +171,7 @@ if __name__=="__main__":
   runner(test_game_state_check)
   runner(test_game_state_checkmate)
   runner(test_game_state_stalemate)
+  runner(test_next_player_state)
   #test_invalid_player()
   #test_api_error()
   log.info("\nTotal tests = {0}, Passed = {1}, Failed = "
