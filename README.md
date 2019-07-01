@@ -1,23 +1,23 @@
-Chess Test Software 1.0
+# Chess Test Software 1.0
 
 We will keep on adding new test cases.
 
 This test software is for chess game at http://chesstest.solidfire.net:8080/json-rpc
 
-Software design:
+# Software design:
 
 1. Tests are written in test_chess.py file.
 2. lib.py file all the required libraries.
 3. chess_exception.py file has all the custom exceptions.
 
-To run the tests:
+# To run the tests:
 
 1. pip install requirements.txt
 2. run command "python test_chess.py", you will get the output on console as
    well as in log file inside log folder.
 
-Sample output of tests including test case names:
-
+# Sample output of tests including test case names:
+```
 avik git:(master) ✗ python test_chess.py
 2019-07-01 22:02:46,512 - __main__ - INFO - **** RUNNING TEST: test_invalid_move ****
 2019-07-01 22:02:46,513 - lib - INFO - Sending request to http://chesstest.solidfire.net:8080/json-rpc with json: {'jsonrpc': '2.0', 'params': {'playerState': 'w', 'move': 'Nc3', 'boardState': [{'loc': 'a9', 'type': 'r'}, {'loc': 'b8', 'type': 'n'}, {'loc': 'c8', 'type': 'b'}, {'loc': 'd8', 'type': 'q'}, {'loc': 'e8', 'type': 'k'}, {'loc': 'f8', 'type': 'b'}, {'loc': 'g8', 'type': 'n'}, {'loc': 'h8', 'type': 'r'}, {'loc': 'a7', 'type': 'p'}, {'loc': 'b7', 'type': 'p'}, {'loc': 'c7', 'type': 'p'}, {'loc': 'd7', 'type': 'p'}, {'loc': 'e7', 'type': 'p'}, {'loc': 'f7', 'type': 'p'}, {'loc': 'g7', 'type': 'p'}, {'loc': 'h7', 'type': 'p'}, {'loc': 'a1', 'type': 'R'}, {'loc': 'b1', 'type': 'N'}, {'loc': 'c1', 'type': 'B'}, {'loc': 'd1', 'type': 'Q'}, {'loc': 'f1', 'type': 'B'}, {'loc': 'g1', 'type': 'N'}, {'loc': 'h1', 'type': 'R'}, {'loc': 'a2', 'type': 'P'}, {'loc': 'b2', 'type': 'P'}, {'loc': 'c2', 'type': 'P'}, {'loc': 'd2', 'type': 'P'}, {'loc': 'e2', 'type': 'P'}, {'loc': 'f2', 'type': 'P'}, {'loc': 'g2', 'type': 'P'}, {'loc': 'e1', 'type': 'K'}, {'loc': 'h2', 'type': 'P'}]}, 'method': 'MakeMove', 'id': 1}
@@ -55,3 +55,4 @@ avik git:(master) ✗ python test_chess.py
 2019-07-01 22:02:58,160 - __main__ - INFO -
 Total tests = 10, Passed = 9, Failed = 1
 ➜  avik git:(master) ✗
+```
